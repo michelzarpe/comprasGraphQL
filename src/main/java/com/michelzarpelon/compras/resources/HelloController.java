@@ -1,4 +1,4 @@
-package com.michelzarpelon.compras;
+package com.michelzarpelon.compras.resources;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

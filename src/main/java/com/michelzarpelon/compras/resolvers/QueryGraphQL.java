@@ -1,4 +1,4 @@
-package com.michelzarpelon.compras;
+package com.michelzarpelon.compras.resolvers;
 
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
