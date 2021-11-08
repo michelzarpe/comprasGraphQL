@@ -3,13 +3,17 @@ package com.michelzarpelon.compras.resolvers;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.michelzarpelon.compras.modal.Cliente;
+import com.michelzarpelon.compras.repositories.ClienteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Component
 public class QueryGraphQL implements GraphQLQueryResolver {
+
+    @Autowired
+    private ClienteRepository repository;
 
     public String hello(){
         return "Ola pelo GraphQl";
@@ -19,15 +23,12 @@ public class QueryGraphQL implements GraphQLQueryResolver {
         return a+b;
     }
 
-    public Cliente cliente(){
-        return Cliente.builder()
-                .email("teste@email.com")
-                .nome("nome sobrenome")
-                .build();
+    public Cliente cliente(Long id){
+        return repository.findById(id).orElse(null);
     }
 
     public List<Cliente> clientes(){
-        return Arrays.asList(this.cliente(),this.cliente());
+        return repository.findAll();
     }
 
 
