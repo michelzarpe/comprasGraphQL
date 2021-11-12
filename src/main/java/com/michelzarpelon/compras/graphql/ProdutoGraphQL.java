@@ -36,7 +36,8 @@ public class ProdutoGraphQL implements GraphQLQueryResolver, GraphQLMutationReso
 
     }
 
-    public Boolean deleteCliente(Long id) {
+    public Boolean deleteProduto(Long id) {
         return this.service.deleteById(id);
     }
+
 }

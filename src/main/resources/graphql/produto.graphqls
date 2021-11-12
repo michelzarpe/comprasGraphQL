@@ -16,6 +16,6 @@ extend type Query {
 }
 
 extend type Mutation {
-    saveProduto(produto:ProdutoInput!):Produto!
-    deleteProduto(id:ID):Boolean!
+    saveProduto(produto:ProdutoInput!): Produto!
+    deleteProduto(id:ID): Boolean
 }

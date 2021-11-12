@@ -1,16 +1,14 @@
 package com.michelzarpelon.compras.service;
 
-import com.michelzarpelon.compras.modal.Cliente;
 import com.michelzarpelon.compras.modal.Produto;
-import com.michelzarpelon.compras.repositories.ClienteRepository;
 import com.michelzarpelon.compras.repositories.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-
+@Service
 public class ProdutoService {
-
 
     @Autowired
     private ProdutoRepository repository;
