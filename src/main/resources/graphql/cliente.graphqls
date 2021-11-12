@@ -10,4 +10,5 @@ type Cliente {
 
 extend type Mutation {
     saveCliente(id: ID, nome:String, email: String): Cliente
+    deleteCliente(id: ID): Boolean
 }

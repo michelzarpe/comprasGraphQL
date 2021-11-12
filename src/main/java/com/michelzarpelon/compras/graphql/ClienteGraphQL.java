@@ -3,8 +3,9 @@ package com.michelzarpelon.compras.graphql;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import com.michelzarpelon.compras.graphql.service.ClienteService;
 import com.michelzarpelon.compras.modal.Cliente;
-import com.michelzarpelon.compras.repositories.ClienteRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,23 +16,26 @@ import java.util.List;
 public class ClienteGraphQL implements GraphQLQueryResolver, GraphQLMutationResolver {
 
     @Autowired
-    private ClienteRepository repository;
+    private ClienteService service;
 
     public Cliente cliente(Long id){
-        return repository.findById(id).orElse(null);
+        return service.cliente(id);
     }
 
     public List<Cliente> clientes(){
-        return repository.findAll();
+        return service.clientes();
     }
 
     @Transactional
     public Cliente saveCliente(Long id, String nome, String email){
-        return repository.save(Cliente.builder()
-                        .id(id)
-                        .nome(nome)
-                        .email(email)
-                        .build());
+        return service.saveCliente(Cliente.builder()
+                .id(id)
+                .nome(nome)
+                .email(email)
+                .build());
     }
-
+    @Transactional
+    public Boolean deleteCliente(Long id) {
+        return this.service.deleteCliente(id);
+    }
 }
