@@ -26,7 +26,6 @@ public class ClienteGraphQL implements GraphQLQueryResolver, GraphQLMutationReso
         return service.clientes();
     }
 
-    @Transactional
     public Cliente saveCliente(Long id, String nome, String email){
         return service.saveCliente(Cliente.builder()
                 .id(id)
@@ -34,7 +33,7 @@ public class ClienteGraphQL implements GraphQLQueryResolver, GraphQLMutationReso
                 .email(email)
                 .build());
     }
-    @Transactional
+
     public Boolean deleteCliente(Long id) {
         return this.service.deleteCliente(id);
     }
