@@ -1,4 +1,4 @@
-package com.michelzarpelon.compras.graphql.service;
+package com.michelzarpelon.compras.service;
 
 import com.michelzarpelon.compras.modal.Cliente;
 import com.michelzarpelon.compras.repositories.ClienteRepository;
@@ -13,21 +13,21 @@ public class ClienteService {
     @Autowired
     private ClienteRepository repository;
 
-    public Cliente cliente(Long id){
+    public Cliente findById(Long id){
         return repository.findById(id).orElse(null);
     }
 
-    public List<Cliente> clientes(){
+    public List<Cliente> findAll(){
         return repository.findAll();
     }
 
     @Transactional
-    public Cliente saveCliente(Cliente obj){
+    public Cliente save(Cliente obj){
         return repository.save(obj);
     }
     @Transactional
-    public Boolean deleteCliente(Long id){
-        Cliente obj = this.cliente(id);
+    public Boolean deleteById(Long id){
+        Cliente obj = this.findById(id);
         if(obj!=null) {
             this.repository.delete(obj);
             return true;
@@ -36,3 +36,4 @@ public class ClienteService {
     }
 
 }
+

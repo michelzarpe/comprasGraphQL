@@ -3,38 +3,36 @@ package com.michelzarpelon.compras.graphql;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import com.michelzarpelon.compras.service.ClienteService;
 import com.michelzarpelon.compras.modal.Cliente;
-
 import com.michelzarpelon.compras.modal.ClienteInput;
+import com.michelzarpelon.compras.modal.Produto;
+import com.michelzarpelon.compras.modal.ProdutoInput;
+import com.michelzarpelon.compras.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-public class ClienteGraphQL implements GraphQLQueryResolver, GraphQLMutationResolver {
+public class ProdutoGraphQL implements GraphQLQueryResolver, GraphQLMutationResolver {
 
     @Autowired
-    private ClienteService service;
+    private ProdutoService service;
 
-    public Cliente cliente(Long id){
+    public Produto produto(Long id){
         return service.findById(id);
     }
 
-    public List<Cliente> clientes(){
+    public List<Produto> produtos(){
         return service.findAll();
     }
 
-    public Cliente saveCliente(ClienteInput clienteInput){
-        return service.save(Cliente.builder()
-                .id(clienteInput.getId())
-                .nome(clienteInput.getNome())
-                .email(clienteInput.getEmail())
+    public Produto saveProduto(ProdutoInput produtoInput){
+        return service.save(Produto.builder()
+                .id(produtoInput.getId())
+                .nome(produtoInput.getNome())
+                .valor(produtoInput.getValor())
                 .build());
-
-        //ModelMapper m = new ModelMapper();
-        //Cliente c = m.map(clienteInput,Cliente.class);
 
     }
 
