@@ -6,6 +6,8 @@ import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.michelzarpelon.compras.graphql.service.ClienteService;
 import com.michelzarpelon.compras.modal.Cliente;
 
+import com.michelzarpelon.compras.modal.ClienteInput;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -26,12 +28,16 @@ public class ClienteGraphQL implements GraphQLQueryResolver, GraphQLMutationReso
         return service.clientes();
     }
 
-    public Cliente saveCliente(Long id, String nome, String email){
+    public Cliente saveCliente(ClienteInput clienteInput){
         return service.saveCliente(Cliente.builder()
-                .id(id)
-                .nome(nome)
-                .email(email)
+                .id(clienteInput.getId())
+                .nome(clienteInput.getNome())
+                .email(clienteInput.getEmail())
                 .build());
+
+        //ModelMapper m = new ModelMapper();
+        //Cliente c = m.map(clienteInput,Cliente.class);
+
     }
 
     public Boolean deleteCliente(Long id) {
