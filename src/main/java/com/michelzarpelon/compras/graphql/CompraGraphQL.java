@@ -14,6 +14,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -40,9 +41,10 @@ public class CompraGraphQL implements GraphQLQueryResolver, GraphQLMutationResol
     public Compra saveCompra(CompraInput input){
         ModelMapper m = new ModelMapper();
         Compra c = m.map(input,Compra.class);
+        c.setData(new Date());
         c.setProduto(produtoService.findById(input.getProdutoId()));
         c.setCliente(clienteService.findById(input.getClienteId()));
-        return c;
+        return service.save(c);
     }
 
     public Boolean deleteCompra(Long id) {
