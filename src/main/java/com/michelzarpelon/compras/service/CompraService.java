@@ -1,5 +1,6 @@
 package com.michelzarpelon.compras.service;
 
+import com.michelzarpelon.compras.modal.Cliente;
 import com.michelzarpelon.compras.modal.Compra;
 import com.michelzarpelon.compras.repositories.CompraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ public class CompraService {
     public List<Compra> findAll(){
         return repository.findAll();
     }
+
+    public List<Compra> findAllByCliente(Cliente obj) {return repository.findAllByCliente(obj);}
 
     @Transactional
     public Compra save(Compra obj){
