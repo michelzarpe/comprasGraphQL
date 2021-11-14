@@ -11,6 +11,7 @@ import com.michelzarpelon.compras.service.ProdutoService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -34,7 +35,7 @@ public class CompraGraphQL implements GraphQLQueryResolver, GraphQLMutationResol
     }
 
     public List<Compra> compras(int page, int size){
-        return service.findAll(PageRequest.of(page,size));
+        return service.findAll(PageRequest.of(page,size, Sort.by("quantidade").descending()));
     }
 
     public Compra saveCompra(CompraInput input){

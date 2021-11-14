@@ -33,9 +33,9 @@ INSERT INTO produto (id, nome, valor) VALUES (3, 'Bermuda', 60);
 INSERT INTO produto (id, nome, valor) VALUES (4, 'Camiseta', 80);
 INSERT INTO produto (id, nome, valor) VALUES (5, 'Chuteira', 130);
 
-INSERT INTO compra (id, quantidade, data, produto_id, cliente_id, status) VALUES (1, 1, CURRENT_DATE(), 1, 1, 'OK' );
-INSERT INTO compra (id, quantidade, data, produto_id, cliente_id, status) VALUES (2, 1, CURRENT_DATE(), 2, 1, 'OK' );
-INSERT INTO compra (id, quantidade, data, produto_id, cliente_id, status) VALUES (3, 1, CURRENT_DATE(), 3, 1, 'OK' );
-INSERT INTO compra (id, quantidade, data, produto_id, cliente_id, status) VALUES (4, 1, CURRENT_DATE(), 1, 2, 'OK' );
+INSERT INTO compra (id, quantidade, data, produto_id, cliente_id, status) VALUES (1, 9, CURRENT_DATE(), 1, 1, 'OK' );
+INSERT INTO compra (id, quantidade, data, produto_id, cliente_id, status) VALUES (2, 80, CURRENT_DATE(), 2, 1, 'OK' );
+INSERT INTO compra (id, quantidade, data, produto_id, cliente_id, status) VALUES (3, 10, CURRENT_DATE(), 3, 1, 'OK' );
+INSERT INTO compra (id, quantidade, data, produto_id, cliente_id, status) VALUES (4, 99, CURRENT_DATE(), 1, 2, 'OK' );
 INSERT INTO compra (id, quantidade, data, produto_id, cliente_id, status) VALUES (5, 1, CURRENT_DATE(), 2, 2, 'OK' );
 
