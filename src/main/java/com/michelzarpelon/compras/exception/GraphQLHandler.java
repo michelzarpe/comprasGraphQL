@@ -28,6 +28,7 @@ public class GraphQLHandler implements GraphQLErrorHandler {
                 String msg = ex.getMessage();
                 return new SimpleError(msg);
             }
+            return new SimpleError("Erro interno desconhecido ao executar a requisição");
         } else if (error instanceof ValidationError) {
             String msg = error.getMessage();
             return new SimpleError(msg);
