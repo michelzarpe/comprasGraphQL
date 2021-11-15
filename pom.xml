@@ -73,6 +73,13 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.4</version>
+			<scope>test</scope>
+		</dependency>
+
 		<!-- GraphQL -->
 		<dependency>
 			<groupId>com.graphql-java</groupId>
@@ -89,11 +96,13 @@
 			<artifactId>graphql-spring-boot-test</artifactId>
 			<version>5.0.2</version>
 		</dependency>
+		<!-- GraphiQL -->
 		<dependency>
 			<groupId>com.graphql-java</groupId>
 			<artifactId>graphiql-spring-boot-starter</artifactId>
 			<version>5.0.2</version>
 		</dependency>
+
 
 		<!-- Playground
 		<dependency>
