@@ -10,7 +10,7 @@ http://localhost:8080/graphiql
 - [X] Implementação de GraphQLQueryResolver no GraphQl
 - [X] Implementação de GraphQLMutationResolver no GraphQl
 - [X] Implementação de Input no GraphQl
-- [X] Implementação de Cash com Spring e também JPA
+- [X] Implementação de ehCache com Spring e também JPA
 - [X] Implementação de relacionamento ente entidades para demonstrar os resolvers
 
 Curso: https://www.udemy.com/course/graphql-springboot/
