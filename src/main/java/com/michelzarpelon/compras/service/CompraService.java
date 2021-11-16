@@ -4,6 +4,8 @@ import com.michelzarpelon.compras.modal.Cliente;
 import com.michelzarpelon.compras.modal.Compra;
 import com.michelzarpelon.compras.repositories.CompraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -24,9 +26,12 @@ public class CompraService {
         return repository.findAll(of).getContent();
     }
 
+    //quando limpar no evict limpar só de um cliente
+    @Cacheable(value = "comprasByCliente", key = "#obj.id")
     public List<Compra> findAllByCliente(Cliente obj) {return repository.findAllByCliente(obj);}
 
     @Transactional
+    @CacheEvict(value = "comprasByCliente", key = "#obj.cliente.id")
     public Compra save(Compra obj){
         return repository.save(obj);
     }

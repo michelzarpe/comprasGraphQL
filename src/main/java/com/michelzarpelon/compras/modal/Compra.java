@@ -14,6 +14,7 @@ import java.util.Date;
 @Data
 @Builder
 @Entity(name = "compra")
+@Cacheable
 public class Compra {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

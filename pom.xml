@@ -52,6 +52,18 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- Cache -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+
+		<!-- Hibernate Cache -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+		</dependency>
+
 		<!-- Model Mapper: http://modelmapper.org/ -->
 		<dependency>
 			<groupId>org.modelmapper</groupId>
@@ -72,7 +84,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+		<!--Junit-->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
